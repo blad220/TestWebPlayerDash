@@ -1,0 +1,20 @@
+{
+"companyName": "Whimsy Games",
+"productName": "Samsung Expo",
+"productVersion": "0.1",
+"dataUrl": "2_2_All_Player_DashJS.data.unityweb",
+"wasmCodeUrl": "2_2_All_Player_DashJS.wasm.code.unityweb",
+"wasmFrameworkUrl": "2_2_All_Player_DashJS.wasm.framework.unityweb",
+"asmCodeUrl": "2_2_All_Player_DashJS.asm.code.unityweb",
+"asmMemoryUrl": "2_2_All_Player_DashJS.asm.memory.unityweb",
+"asmFrameworkUrl": "2_2_All_Player_DashJS.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.16f1"
+}

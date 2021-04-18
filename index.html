@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  
+<style>
+   .header {
+       position: fixed;
+       top: 0;
+       z-index: 10000;
+       background-color: #aaa;
+       font-size: 20px;
+       width: 100%;
+       padding: 20px;
+       text-align: center;
+       left: 0;
+       margin: 0;
+   }
+   h1 {
+       padding-top: 100px;
+   }
+
+</style>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Elite City 21</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+	<script src="pleaserotate.js"></script>
+    <script>
+	var unityInstance = UnityLoader.instantiate("unityContainer", "Build/2_2_All_Player_DashJS.json", {onProgress: UnityProgress});
+	window.devicePixelRatio = 1;
+	window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("load", resizeCanvas);
+    
+    if ("onpointerlockchange" in document) {
+		document.addEventListener('pointerlockchange', lockChangeAlert, false);
+	}else if ("onmozpointerlockchange" in document) {
+		document.addEventListener('mozpointerlockchange', lockChangeAlert, false);
+	} else if ("onwebkitpointerlockchange" in document) {
+		document.addEventListener('webkitpointerlockchange', lockChangeAlert, false);
+	}
+
+	function lockChangeAlert() {
+		if(document.pointerLockElement === unityInstance.Module.canvas ||
+		document.mozPointerLockElement === unityInstance.Module.canvas ||
+		document.webkitPointerLockElement === unityInstance.Module.canvas) {
+		unityInstance.SendMessage('CursorController', 'OnCursorLockChanged',1);
+		}else {
+		unityInstance.SendMessage('CursorController', 'OnCursorLockChanged',0);
+		}
+	}
+
+	function resizeCanvas() 
+	{
+		var canvas = unityInstance.Module.canvas;
+		canvas.width  = window.innerWidth;
+		canvas.height = window.innerHeight;
+	}
+
+	var PleaseRotateOptions = {
+      onlyMobile: false
+   };
+	</script>
+  
+  </head>
+  <body style="margin:0; overflow:hidden;">
+	  <div class="webgl-content" style="width: 100%; height: 100%;">
+      <div id="unityContainer"></div>
+	  
+  </body>
+</html>
